@@ -7,11 +7,31 @@ const connect = () => {
     port: 50541
   });
   
+  conn.setEncoding("utf8");
+
   conn.on("connect", () => {
-    console.log("Name: MFL")
-  })
+    console.log("connceted !")
+  });
+  
   return conn;
 };
+
+// process.stdin.on("data", (message) => {
+//   conn.write("message:", message);
+// })
+
+// conn.on("end", () => {
+//   console.log("connect is end");
+// })
+// const server = net.createServer();
+// server.on('connection', (client) => {
+//   console.log('New client connected!');
+//   client.write('Hello there!');
+// });
+// server.listen(port, () => {
+//    console.log(`server is listeing on port = ${port}`);
+// });
+
 
 
 module.exports = { connect };
