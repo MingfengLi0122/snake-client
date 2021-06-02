@@ -1,4 +1,3 @@
-//let connection;
 let connection = {}
 const setupInput = (conn) => {
   connection = conn;
@@ -6,6 +5,7 @@ const setupInput = (conn) => {
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
   stdin.resume();
+  connection.write("Say: HELLO PEOPLE!!!")
   stdin.on("data", (handleUserInput) => {
     if (handleUserInput === '\u0003') {
       process.exit();
@@ -21,7 +21,7 @@ const setupInput = (conn) => {
     } else if (handleUserInput === "d") {
       console.log("Move: right");
       connection.write("Move: right");
-    }
+    } 
   });
   return connection;
 };
